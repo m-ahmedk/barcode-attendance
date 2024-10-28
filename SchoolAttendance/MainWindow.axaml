@@ -1,0 +1,100 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="700"
+        Width="700" Height="700"
+        WindowState="Maximized"
+        x:Class="SchoolAttendance.MainWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="SchoolAttendance"
+        Icon="/Assets/school.png">
+	<Grid RowDefinitions="Auto,Auto,*">
+		<Grid Grid.Row="0" ColumnDefinitions="*"  Margin="0,5">
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
+				<Image Source="/Assets/school.png" Width="150" Height="150" HorizontalAlignment="Center" />
+			</StackPanel>
+		</Grid>
+
+		<!-- New Row for Class Details -->
+		<Grid Grid.Row="1" ColumnDefinitions="*" Margin="0,5" x:Name="ClassDetailsGrid">
+			<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
+				<TextBlock x:Name="CourseNameTextBox" Margin="0,0,0,5" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" />
+				<TextBlock x:Name="CourseFromTextBox" Margin="0,0,0,5" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+				<TextBlock x:Name="CourseToTextBox" Margin="0,0,0,5" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" />
+			</StackPanel>
+		</Grid>
+		
+		<Grid Grid.Row="2" ColumnDefinitions="*" Margin="0,10">
+			<!-- Heading for Datetime -->
+			<TextBlock
+                x:Name="ClockTextBlock"
+                Margin="0,0,0,15"
+                FontSize="20"
+                FontWeight="DemiBold"
+                HorizontalAlignment="Center">
+			</TextBlock>
+		</Grid>
+		
+		<Grid Grid.Row="3" ColumnDefinitions="*,*" Margin="15">
+			<Grid Grid.Column="0" RowDefinitions="Auto,*">
+				<StackPanel Grid.Row="0">
+					<!-- ID Field -->
+
+					<Border Margin="0,35,0,5">
+						<!-- Add margin here -->
+						<StackPanel>
+							<TextBox Watermark="Barcode" x:Name="BarcodeTextBox" PasswordChar="*"/>
+						</StackPanel>
+					</Border>
+
+					<!-- Name Field -->
+					<Border Margin="0,5">
+						<StackPanel>
+							<TextBox Watermark="Name" IsReadOnly="True" IsEnabled="False" x:Name="NameTextBox"/>
+						</StackPanel>
+					</Border>
+
+					<!-- Father's Name Field -->
+					<Border Margin="0,5">
+						<StackPanel>
+							<TextBox Watermark="Father's Name" IsReadOnly="True" IsEnabled="False" x:Name="FatherNameTextBox"/>
+						</StackPanel>
+					</Border>
+
+					<!-- Class Field -->
+					<Border Margin="0,5">
+						<StackPanel>
+							<TextBox Watermark="Class" IsReadOnly="True" IsEnabled="False" x:Name="ClassTextBox"/>
+						</StackPanel>
+					</Border>
+
+					<!-- Address Field -->
+					<Border Margin="0,5">
+						<StackPanel>
+							<TextBox Watermark="Address" IsReadOnly="True" IsEnabled="False" x:Name="AddressTextBox"/>
+						</StackPanel>
+					</Border>
+				</StackPanel>
+				
+				<Grid Grid.Row="1" Margin="0,15,0,0">
+					<Border BorderBrush="Black" BorderThickness="1">
+						<ScrollViewer x:Name="LogScrollViewer" VerticalScrollBarVisibility="Auto">
+							<StackPanel x:Name="LogStackPanel"/>
+						</ScrollViewer>
+					</Border>
+				</Grid>
+			</Grid>
+			
+			<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1"  Margin="10,30,0,0">	
+				<Grid RowDefinitions="*,Auto" >
+				
+					<Image x:Name="DisplayImage" Margin="100" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"/>
+					<StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,30">				
+						<TextBlock x:Name="TimeInLabel" HorizontalAlignment="Center" Foreground="Green" FontWeight="DemiBold" FontSize="30" Margin="0,0,0,5"/>
+					</StackPanel>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Window>
